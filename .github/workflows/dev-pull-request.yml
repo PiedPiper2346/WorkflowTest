@@ -12,11 +12,8 @@ jobs:
       - uses: actions/checkout@v2
       # Runs multiple command using the runners shell
       - name: Install Dependencies
-      - run: |
-          npm install
+        run: npm install
       - name: Build project
-      - run: |
-          npm run build
+        run: npm run build
       - name: Run Cypress Test Suite
-      - run: |
-          npm run ci:cy-run
+        run: npm run ci:cy-run
