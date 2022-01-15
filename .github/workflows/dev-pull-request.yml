@@ -1,14 +1,22 @@
-build_and_test:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    # Runs multiple command using the runners shell
-    - name: Install Dependencies
-    - run: |
-        npm install
-    - name: Build project
-    - run: |
-        npm run build
-    - name: Run Cypress Test Suite
-    - run: |
-        npm run ci:cy-run
+name: Push to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Runs multiple command using the runners shell
+      - name: Install Dependencies
+      - run: |
+          npm install
+      - name: Build project
+      - run: |
+          npm run build
+      - name: Run Cypress Test Suite
+      - run: |
+          npm run ci:cy-run
