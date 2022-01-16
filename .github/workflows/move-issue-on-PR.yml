@@ -1,8 +1,11 @@
 name: Move to In Progress when PR is Ready for Review
 
 on:
-  pull_request_target:
-    types: [review_requested]
+  pull_request:
+    types:
+      - opened
+    branches:    
+      - main
 
 jobs:
   ready-for-review-in-progress:
