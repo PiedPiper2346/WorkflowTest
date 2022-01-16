@@ -15,13 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Get Linked Issues Action
-        uses: kin/gh-action-get-linked-issues@v1.0
+        uses: kin/gh-action-get-linked-issues@main
         id: linked-issues
         with:
           # Required: personal access token with permissions to archive cards
           access-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Move Issues to Ready for Review Column
-        uses: kin/gh-action-move-issues-to-column@1.0
+        uses: kin/gh-action-move-issues-to-column@v1
         with:
           access-token: "${{ secrets.GITHUB_TOKEN }}"
           target-column: "Ready for Review"
