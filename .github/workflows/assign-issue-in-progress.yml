@@ -2,7 +2,7 @@ name: Move assigned pull requests into To do
 
 on:
   pull_request:
-    types: [assigned]
+    types: [assigned, opened, reopened]
 
 jobs:
   automate-project-columns:
