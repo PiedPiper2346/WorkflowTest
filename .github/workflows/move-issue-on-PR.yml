@@ -2,8 +2,7 @@ name: Move to In Progress when PR is Ready for Review
 
 on:
   pull_request:
-    types:
-      - opened
+    types: [opened, reopened]
     branches:    
       - main
 
