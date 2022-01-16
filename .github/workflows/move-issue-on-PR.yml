@@ -20,6 +20,9 @@ jobs:
         with:
           # Required: personal access token with permissions to archive cards
           access-token: "${{ secrets.GITHUB_TOKEN }}"
+      - env:
+          LINKED_ISSUES: ${{ steps.linked-issues.outputs.issues }}
+        run: echo $LINKED_ISSUES
       - name: Move Issues to Ready for Review Column
         uses: kin/gh-action-move-issues-to-column@v1
         with:
