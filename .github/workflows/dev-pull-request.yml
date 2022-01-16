@@ -1,19 +1,22 @@
-name: Push to Main
+# This will run tests and move the issue into In Progress.
+
+name: Print Context
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - opened
+    branches:    
+      - main
 
 jobs:
-  build_and_test:
+  print_context:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      # Runs multiple command using the runners shell
-      - name: Install Dependencies
-        run: npm install
-      - name: Build project
-        run: npm run build
-      - name: Run Cypress Test Suite
-        run: npm run ci:cy-run
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
